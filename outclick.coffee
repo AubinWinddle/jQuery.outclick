@@ -1,4 +1,4 @@
-class Outclick 
+class Outclick
 
   constructor: ->
     @objects = []
@@ -11,19 +11,19 @@ class Outclick
     $.each @objects, (index, el) =>
       if @check(el.container, e)
         if el.related.length < 1 then execute = true
-        else 
+        else
           $.each el.related, (index, relation) =>
             if @check(relation, e)
               execute = true
             else
               execute = false
               false
-        el.callback.call(el.container) if execute  
+        el.callback.call(el.container) if execute
 
 
 outclick = new Outclick
 
-$.fn.outclick = (options = {}) -> 
+$.fn.outclick = (options = {}) ->
   options.related ||= []
   options.callback  ||= => @hide()
   outclick.objects.push { container: @, related: options.related, callback: options.callback }
@@ -35,6 +35,22 @@ $.fn.outclickStop = ->
     index = $.inArray(item, outclick.objects)
     if (index > -1)
       outclick.objects.splice(index, 1)
+
+$.fn.outclickAddRelated = (related) ->
+  items = $.grep outclick.objects, (e) => e.container.is(@)
+  if (items.length > 0)
+    item = items[0]
+    item.related.push related
+
+$.fn.outclickRemoveRelated = (relatedToRemove) ->
+  items = $.grep outclick.objects, (e) => e.container.is(@)
+  if (items.length > 0)
+    item = items[0]
+    $.each item.related, (index, related) ->
+      if related == relatedToRemove
+        return item.related.splice(index, 1)
+
+      false
 
 $(document).mouseup (e) =>
   outclick.trigger(e)

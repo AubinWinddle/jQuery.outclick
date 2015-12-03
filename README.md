@@ -7,7 +7,7 @@ Usage
 -----
 
 ```
-$(element).outclick({ 
+$(element).outclick({
  callback: function() { $(this).hide() }
 });
 ```
@@ -15,13 +15,13 @@ $(element).outclick({
 It is also possible to pass related objects. When you click on related object, action will not be considered as click outside main object bounds.
 
 ```
-$(element).outclick({ 
+$(element).outclick({
  callback: function() { $(this).hide() },
  related: [$(element1), $(element2)]
 });
 ```
 
-Sometimes you can have multiple elements, with same structure. 
+Sometimes you can have multiple elements, with same structure.
 
 ```
 $(element).each(function() {
@@ -33,4 +33,16 @@ $(element).each(function() {
    ]
   });
  });
+```
+
+Sometime you need to add a related objects at a certain moment.
+
+```coffee
+$(element).outclickAddRelated $(element1)
+```
+
+Sometime you to remove a related objects at a certain moment
+
+```coffee
+$(element).outclickRemoveRelated $(element1)
 ```
