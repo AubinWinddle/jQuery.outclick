@@ -74,8 +74,39 @@ $.fn.outclickStop = function() {
   }
 };
 
-$(document).mouseup((function(_this) {
-  return function(e) {
-    return outclick.trigger(e);
-  };
-})(this));
+$.fn.outclickAddRelated = function(related) {
+  var item, items;
+  items = $.grep(outclick.objects, (function(_this) {
+    return function(e) {
+      return e.container.is(_this);
+    };
+  })(this));
+  if (items.length > 0) {
+    item = items[0];
+    return item.related.push(related);
+  }
+};
+
+$.fn.outclickRemoveRelated = function(relatedToRemove) {
+  var item, items;
+  items = $.grep(outclick.objects, (function(_this) {
+    return function(e) {
+      return e.container.is(_this);
+    };
+  })(this));
+  if (items.length > 0) {
+    item = items[0];
+    return $.each(item.related, function(index, related) {
+      if (related === relatedToRemove) {
+        return item.related.splice(index, 1);
+      }
+      return false;
+    });
+  }
+};
+
+$(document).on('mouseup', function(e) {
+  return outclick.trigger(e);
+});
+
+//# sourceMappingURL=outclick.js.map

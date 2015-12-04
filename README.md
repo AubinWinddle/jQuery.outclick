@@ -3,6 +3,11 @@ Outclick
 
 Trigger callback, when click outside element.
 
+Dependencies
+------------
+
+- Jquery >= 1.11.3
+
 Usage
 -----
 
@@ -45,4 +50,21 @@ Sometime you to remove a related objects at a certain moment
 
 ```coffee
 $(element).outclickRemoveRelated $(element1)
+```
+
+Install and Build
+-----------------
+
+- Install all packages
+
+```bash
+$ npm install
+```
+
+- Build
+
+```bash
+$ gulp build
+# OR
+$ npm run build
 ```

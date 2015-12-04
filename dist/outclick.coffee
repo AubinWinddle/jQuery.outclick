@@ -26,7 +26,10 @@ outclick = new Outclick
 $.fn.outclick = (options = {}) ->
   options.related ||= []
   options.callback  ||= => @hide()
-  outclick.objects.push { container: @, related: options.related, callback: options.callback }
+  outclick.objects.push
+    container: @,
+    related: options.related,
+    callback: options.callback
 
 $.fn.outclickStop = ->
   items = $.grep outclick.objects, (e) => e.container.is(@)
@@ -52,5 +55,5 @@ $.fn.outclickRemoveRelated = (relatedToRemove) ->
 
       false
 
-$(document).mouseup (e) =>
+$(document).on 'mouseup', (e) ->
   outclick.trigger(e)

@@ -1,0 +1,37 @@
+{
+  "name": "jquery.outclick",
+  "version": "1.0.0",
+  "description": "Lightweight jquery plugin to handle outclick",
+  "main": "outclick.js",
+  "scripts": {
+    "build": "./node_modules/.bin/gulp build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AubinWinddle/jQuery.outclick.git"
+  },
+  "devDependencies": {
+    "del": "^2.1.0",
+    "gulp": "^3.9.0",
+    "gulp-changed": "^1.3.0",
+    "gulp-clean": "^0.3.1",
+    "gulp-coffee": "^2.3.1",
+    "gulp-coffeelint": "^0.5.0",
+    "gulp-filesize": "0.0.6",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.5.1",
+    "gulp-util": "^3.0.7"
+  },
+  "keywords": [
+    "jquery",
+    "outclick"
+  ],
+  "author": "Aubin LORIEUX",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AubinWinddle/jQuery.outclick/issues"
+  },
+  "homepage": "https://github.com/AubinWinddle/jQuery.outclick#readme"
+}
